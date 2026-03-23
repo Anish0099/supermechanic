@@ -1,0 +1,232 @@
+openapi: 3.0.0
+info:
+  title: Vehicle Services API
+  description: API for managing vehicle services, including customer, mechanic, and admin functionalities.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/api
+paths:
+  /customers:
+    get:
+      summary: Get all customers
+      responses:
+        '200':
+          description: A list of customers
+    post:
+      summary: Create a new customer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+      responses:
+        '201':
+          description: Customer created
+  /customers/{id}:
+    get:
+      summary: Get a customer by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Customer details
+        '404':
+          description: Customer not found
+    put:
+      summary: Update a customer
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+      responses:
+        '200':
+          description: Customer updated
+        '404':
+          description: Customer not found
+    delete:
+      summary: Delete a customer
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Customer deleted
+        '404':
+          description: Customer not found
+  /mechanics:
+    get:
+      summary: Get all mechanics
+      responses:
+        '200':
+          description: A list of mechanics
+    post:
+      summary: Create a new mechanic
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Mechanic'
+      responses:
+        '201':
+          description: Mechanic created
+  /mechanics/{id}:
+    get:
+      summary: Get a mechanic by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Mechanic details
+        '404':
+          description: Mechanic not found
+    put:
+      summary: Update a mechanic
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Mechanic'
+      responses:
+        '200':
+          description: Mechanic updated
+        '404':
+          description: Mechanic not found
+    delete:
+      summary: Delete a mechanic
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Mechanic deleted
+        '404':
+          description: Mechanic not found
+  /admins:
+    get:
+      summary: Get all admins
+      responses:
+        '200':
+          description: A list of admins
+    post:
+      summary: Create a new admin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Admin'
+      responses:
+        '201':
+          description: Admin created
+  /admins/{id}:
+    get:
+      summary: Get an admin by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Admin details
+        '404':
+          description: Admin not found
+    put:
+      summary: Update an admin
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Admin'
+      responses:
+        '200':
+          description: Admin updated
+        '404':
+          description: Admin not found
+    delete:
+      summary: Delete an admin
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Admin deleted
+        '404':
+          description: Admin not found
+components:
+  schemas:
+    Customer:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+    Mechanic:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        expertise:
+          type: string
+        phone:
+          type: string
+    Admin:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+        role:
+          type: string

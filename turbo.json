@@ -1,0 +1,24 @@
+{
+  "pipeline": {
+    "build": {
+      "dependsOn": [
+        "lint",
+        "test"
+      ],
+      "outputs": [
+        "apps/web/.next/**",
+        "apps/api/dist/**"
+      ]
+    },
+    "lint": {
+      "outputs": []
+    },
+    "test": {
+      "outputs": []
+    }
+  },
+  "globalDependencies": [
+    "packages/shared/src/**/*",
+    "packages/ui/src/**/*"
+  ]
+}
