@@ -89,7 +89,12 @@ const MapboxMap = ({ markers, customerLocation }: MapboxMapProps) => {
                     return;
                 }
 
-                const markerInstance = new mapboxgl.default.Marker({ color: '#ff7a45' })
+                // Custom HTML element with bike emoji
+                const el = document.createElement('div');
+                el.style.cssText = 'font-size:1.6rem;cursor:pointer;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));';
+                el.textContent = '🏍️';
+
+                const markerInstance = new mapboxgl.default.Marker({ element: el })
                     .setLngLat([lng, lat])
                     .setPopup(
                         new mapboxgl.default.Popup({ offset: 24 }).setText(

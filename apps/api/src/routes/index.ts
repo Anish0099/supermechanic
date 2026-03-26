@@ -14,6 +14,7 @@ import notificationsRoutes from '../modules/notifications/notifications.routes';
 import jobsRoutes from '../modules/jobs/jobs.routes';
 import matchingRoutes from '../modules/matching/matching.routes';
 import paymentsMongoRoutes from '../modules/paymentsMongo/payments.routes';
+import onboardingRoutes from '../modules/onboarding/onboarding.routes';
 
 const router = Router();
 
@@ -32,5 +33,6 @@ router.use('/notifications', notificationsRoutes);
 router.use('/jobs', jobsRoutes);
 router.use('/matching', matchingRoutes);
 router.use('/payments-mongo', paymentsMongoRoutes);
+router.use('/onboarding', onboardingRoutes);
 
 export default router;
