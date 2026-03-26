@@ -3,6 +3,7 @@ export type CreateJobPayload = {
     serviceType?: string;
     problem?: string;
     vehicleType?: string;
+    vehicleDetails?: string;
     location: {
         address: string;
         lat?: number;
